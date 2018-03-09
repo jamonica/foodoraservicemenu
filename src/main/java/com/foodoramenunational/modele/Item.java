@@ -63,7 +63,7 @@ public class Item
     public String getCategorie() {
         return categorie;
     }
-    public String getIngredientIds() {
+    public String getIngredient() {
         String ingredient = "";
         for (int i = 0; i < (this.ingredients.length - 1); i++) {
             ingredient += this.ingredients[i].getId_ingredient() + ",";
@@ -75,9 +75,9 @@ public class Item
         this.categorie = categorie;
     }
 
-    public Ingredient[] getIngredient() {
+    /*public Ingredient[] getIngredient() {
         return ingredients;
-    }
+    }*/
 
     public void setIngredient(Ingredient[] ingredients) {
         this.ingredients = ingredients;

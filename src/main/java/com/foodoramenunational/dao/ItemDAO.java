@@ -38,7 +38,7 @@ public class ItemDAO extends DAO<Item>{
             prestm.setString(3, x.getDescription());
             prestm.setBoolean(4, x.getDisponibilite());
             prestm.setString(5, x.getCategorie());
-            prestm.setString(6, x.getIngredientIds());
+            prestm.setString(6, x.getIngredient());
             prestm.setDouble(7, x.getPrix());
             prestm.setDouble(8, x.getRabais());
             prestm.setInt(9, x.getTemps_preparation());
@@ -147,7 +147,7 @@ public class ItemDAO extends DAO<Item>{
             prestm.setString(2, x.getDescription());
             prestm.setBoolean(3, x.getDisponibilite());
             prestm.setString(4, x.getCategorie());
-            prestm.setString(5, x.getIngredientIds());
+            prestm.setString(5, x.getIngredient());
             prestm.setDouble(6, x.getPrix());
             prestm.setDouble(7, x.getRabais());
             prestm.setInt(8, x.getTemps_preparation());

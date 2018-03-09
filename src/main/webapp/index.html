@@ -1,10 +1,106 @@
-<!DOCTYPE html>
-<html>
+<%-- 
+    Document   : AjoutClient
+    Created on : Nov 8, 2017, 3:58:59 PM
+    Author     : user
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>Start Page</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <h1>Hello World!</h1>
+    <title></title>
+    <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="css/formulaire.css"/>
+</head>
+    <body> 
+        <form method="post" action="api/menu/menuPost" class="register" name="formajout">
+         
+            <h1>Ajout menu</h1>
+            <fieldset class="row1">
+                <legend>Nouveau menu
+                </legend>
+                <p>                      
+                    <label>Numéro de l'item :  </label>
+                    <input type="text" name="identifiant"  class="long" > 
+                </p>
+                 <p>                      
+                    <label>Nombre d'items:  </label>
+                    <input type="text" name="nbitems"  class="long"> 
+                </p>
+            </fieldset>
+            <fieldset class="row2">
+                <legend>description de l'item
+                </legend>
+                <p>
+                    <label>Nom *
+                    </label>
+                    <input name="nomitem" type="text" class="long"  />
+                </p>
+                <p>
+                    <label>Descrption *
+                    </label>
+                    <input name="desc" type="text" class="long" />
+                </p>
+                <p>
+                    <label>Catégorie *
+                    </label>
+                    <input name="catgorie" type="text" maxlength="10" />
+                </p>
+               
+                <p>
+                    <label>Disponibilité * </label>   
+                    <input name="statut" type="radio" value="dispo"/>
+                    <label class="gender">Disponible</label>
+                    <input name="statut" type="radio" value="nDispo"/>
+                    <label class="gender">Non disponible</label>
+                </p>
+                <p>
+                    <label>Prix *
+                    </label>
+                    <input name="prix" type="text" class="long" />
+                </p>
+                <p>
+                    <label>Temps de préparation *
+                    </label>
+                    <input name="temps" type="text" class="long" />
+                </p>
+                 <p>
+                    <label>Rabais*
+                    </label>
+                    <input name="rabais" type="text" class="long" />
+                </p>
+            </fieldset>
+            <fieldset class="row3">
+                <legend>Informations pour les ingredients
+                </legend>
+                 <p>                      
+                    <label>Nombre d'ingredients:  </label>
+                    <input type="text" name="nbIng"  class="long"> 
+                </p>
+               <p>
+                    <label>id de l'ingredient *
+                    </label>
+                    <input name="idIng" type="text" class="long" />
+                </p>
+                    <p>
+                    <label>Description *
+                    </label>
+                    <input name="nomIng" type="text" class="long" />
+                </p>
+                <p>
+                    <label>Disponibilité * </label>   
+                    <input name="statutIng" type="radio" value="disp"/>
+                    <label class="gender">Disponible</label>
+                    <input name="statutIng" type="radio" value="nDisp"/>
+                    <label class="gender">Non disponible</label>
+                </p>
+                
+            </fieldset>
+           
+            <div><button class="button">Ajouter menu &raquo;</button></div>                        
+        </form>
     </body>
 </html>

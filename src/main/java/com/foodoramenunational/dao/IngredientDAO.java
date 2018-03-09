@@ -26,7 +26,7 @@ public class IngredientDAO extends DAO<Ingredient>{
 
     @Override
     public boolean create(Ingredient x) {
-        String req = "INSERT INTO ingredient (`id_ingredient`, `nom`, `disponibilite`)"
+        String req = "INSERT INTO ingredients (`id_ingredient`, `nom`, `disponibilite`)"
                 + "VALUES(?,?,?)";
         PreparedStatement prestm = null;
         try {

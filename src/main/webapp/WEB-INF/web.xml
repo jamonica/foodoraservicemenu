@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
-	<display-name>CrunchifyRESTJerseyExample</display-name>
+	<display-name>FoodoraMenuNational</display-name>
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -14,12 +14,15 @@
 	</welcome-file-list>
  
 	<servlet>
-		<servlet-name>AjouterMenuService</servlet-name>
-		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>AjouterMenuService</servlet-name>
-		<url-pattern>/api/*</url-pattern>
-	</servlet-mapping>
+            <servlet-name>rest</servlet-name>
+            <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+            <init-param>
+              <param-name>jersey.config.server.provider.packages</param-name>
+              <param-value>com.foodoramenunational</param-value>
+            </init-param>
+       </servlet>
+    <servlet-mapping>
+    <servlet-name>rest</servlet-name>
+    <url-pattern>/api/*</url-pattern>
+</servlet-mapping>
 </web-app>
