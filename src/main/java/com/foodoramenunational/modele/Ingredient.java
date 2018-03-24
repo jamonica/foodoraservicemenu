@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package com.foodoramenunational.modele;
-
 /**
  *
  * @author kouka
@@ -50,9 +49,11 @@ public class Ingredient {
 
     @Override
     public String toString() {
-        return "Ingredient{" + "id_ingredient=" + id_ingredient + ", nom=" + nom + ", disponibilite=" + disponibilite + '}';
+       return "{ \"id_ingredient\":" + id_ingredient + ",\" nom\": \"" + nom + "\", \"disponibilite\":\"" + disponibilite + "\"}";
     }
    
-   
+    public String toJson(){
+        return "{ \"id_ingredient\":" + id_ingredient + ",\" nom\": \"" + nom + "\", \"disponibilite\":\"" + disponibilite + "\"}";
+    }
    
 }

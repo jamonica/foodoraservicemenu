@@ -174,11 +174,31 @@ public class IngredientDAO extends DAO<Ingredient>{
 
     public List<Ingredient> findAllForItemMenu(String ingredientIds) {
         List<Ingredient> liste = new LinkedList<>();
-        String [] listIngredient=ingredientIds.split(",");
-        for (int i=0;i<listIngredient.length;i++)
-            liste.add(read(listIngredient[i]));
-        return liste;
-    }
+          String req = "SELECT * FROM ingredients WHERE id_ingredient=?";
+         PreparedStatement prestm=null;
+            try 
+            {
+                prestm=cnx.prepareStatement(req);
+                prestm.setString(1,ingredientIds);
+                ResultSet r = prestm.executeQuery();
+                while (r.next())
+                {
+                        Ingredient c = new Ingredient();
+                c.setId_ingredient(r.getString(1));
+                c.setNom(r.getString(2));
+                c.setDisponibilite(r.getBoolean(3));
+                        liste.add(c);
+                }
+                r.close();
+                prestm.close();
+            }
+            catch (SQLException exp)
+            {
+                String g = exp.getMessage();
+                System.out.print(exp);
+            }
+            return liste;
+	}
 
     
 }

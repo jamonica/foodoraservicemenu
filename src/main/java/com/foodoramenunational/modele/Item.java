@@ -5,6 +5,8 @@
  */
 package com.foodoramenunational.modele;
 
+import java.util.List;
+
 /**
  *
  * @author kouka
@@ -15,7 +17,7 @@ public class Item
         private String nom;
         private String description;
         private String categorie;
-        private Ingredient []ingredients;
+        private List <Ingredient>ingredients;
         private Boolean disponibilite;
         private double prix;
         private double rabais;
@@ -24,7 +26,7 @@ public class Item
     public Item() {
     }
 
-    public Item(String id_item, String nom, String description, String categorie, Ingredient[] ingredients, Boolean disponibilite, double prix, double rabais, int temps_preparation) {
+    public Item(String id_item, String nom, String description, String categorie, List <Ingredient> ingredients, Boolean disponibilite, double prix, double rabais, int temps_preparation) {
         this.id_item = id_item;
         this.nom = nom;
         this.description = description;
@@ -63,14 +65,11 @@ public class Item
     public String getCategorie() {
         return categorie;
     }
-    public String getIngredient() {
-        String ingredient = "";
-        for (int i = 0; i < (this.ingredients.length - 1); i++) {
-            ingredient += this.ingredients[i].getId_ingredient() + ",";
-        }
-        ingredient += this.ingredients[this.ingredients.length - 1];
-        return ingredient; 
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
     }
+    
     public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
@@ -79,7 +78,7 @@ public class Item
         return ingredients;
     }*/
 
-    public void setIngredient(Ingredient[] ingredients) {
+    public void setIngredient(List <Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
@@ -122,7 +121,6 @@ public class Item
     
     
     
- 
-    
 }
+
 

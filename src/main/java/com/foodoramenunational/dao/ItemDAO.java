@@ -38,7 +38,7 @@ public class ItemDAO extends DAO<Item>{
             prestm.setString(3, x.getDescription());
             prestm.setBoolean(4, x.getDisponibilite());
             prestm.setString(5, x.getCategorie());
-            prestm.setString(6, x.getIngredient());
+            prestm.setString(6, x.getIngredients().toString());
             prestm.setDouble(7, x.getPrix());
             prestm.setDouble(8, x.getRabais());
             prestm.setInt(9, x.getTemps_preparation());
@@ -111,8 +111,8 @@ public class ItemDAO extends DAO<Item>{
                 c.setDisponibilite(r.getBoolean(4));
                 c.setCategorie(r.getString(5));
                 List<Ingredient> list=ingredientDao.findAllForItemMenu(r.getString(6));
-                Ingredient[]array=(Ingredient[]) list.toArray();
-                c.setIngredient(array);
+                //Ingredient[]array=(Ingredient[]) list.toArray();
+                c.setIngredient(list);
                 c.setPrix(r.getDouble(7));
                 c.setRabais(r.getDouble(8));
                 c.setTemps_preparation(r.getInt(9));
@@ -147,7 +147,7 @@ public class ItemDAO extends DAO<Item>{
             prestm.setString(2, x.getDescription());
             prestm.setBoolean(3, x.getDisponibilite());
             prestm.setString(4, x.getCategorie());
-            prestm.setString(5, x.getIngredient());
+            prestm.setString(5, x.getIngredients().toString());
             prestm.setDouble(6, x.getPrix());
             prestm.setDouble(7, x.getRabais());
             prestm.setInt(8, x.getTemps_preparation());
@@ -188,9 +188,10 @@ public class ItemDAO extends DAO<Item>{
                 c.setDescription(r.getString(3));
                 c.setDisponibilite(r.getBoolean(4));
                 c.setCategorie(r.getString(5));
-                List<Ingredient> list=ingredientDao.findAllForItemMenu(r.getString(6));
-                Ingredient[]array=(Ingredient[]) list.toArray();
-                c.setIngredient(array);
+                 String [] listIngredient=r.getString(6).split(",");
+                  List<Ingredient> list=ingredientDao.findAllForItemMenu(listIngredient[0]);
+                //Ingredient[]array=(Ingredient[]) list.toArray();
+                c.setIngredient(list);
                 c.setPrix(r.getDouble(7));
                 c.setRabais(r.getDouble(8));
                 c.setTemps_preparation(r.getInt(9));

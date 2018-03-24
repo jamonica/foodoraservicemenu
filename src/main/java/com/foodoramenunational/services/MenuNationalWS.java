@@ -44,47 +44,14 @@ public class MenuNationalWS {
     String identifiant;
     
     
-    @POST
-    @Path("/menuPost")
-    @Produces(MediaType.APPLICATION_JSON )
-    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-     public Item [] newMenu(@FormParam("identifiant") String id,@FormParam("nbitems") String nbitems, @FormParam("nomitem") String nom, @FormParam("desc") String desc,
-            @FormParam("catgorie") String catgorie,@FormParam("statut") String disponibilite,@FormParam("prix") String prix,
-            @FormParam("temps") String temps,@FormParam("rabais") String rabais,@FormParam("idIng") String idIng,
-            @FormParam("nbIng") String nbIng,@FormParam("nomIng") String nomIng,@FormParam("statutIng") String statutIng){
+    @GET
+    @Path("/menupost")
+    @Produces( MediaType.APPLICATION_JSON)
+     public  List <Item>  newMenu(){
              Connexion cnx= new Connexion();
              ItemDAO itemdao = new ItemDAO(cnx.getConnnection());
-             IngredientDAO ingreDao = new IngredientDAO(cnx.getConnnection());
-             Item [] items = new Item [Integer.parseInt(nbitems)];
-             Ingredient [] ingr = new Ingredient [Integer.parseInt(nbIng)];
-             for(int i=0; i<Integer.parseInt(nbitems);i++){
-                    items[i]=new Item();
-                    items[i].setId_item(id);
-                    items[i].setNom(nom);
-                    items[i].setDescription(desc);
-                    items[i].setCategorie(catgorie);
-                     if(disponibilite.equalsIgnoreCase("dispo"))
-                        items[i].setDisponibilite(Boolean.TRUE);
-                        else 
-                            items[i].setDisponibilite(Boolean.FALSE);
-                    for (int j=0; j<Integer.parseInt(nbIng); j++){
-                        ingr[j]=new Ingredient();
-                        ingr[j].setId_ingredient(idIng);
-                        ingr[j].setNom(nomIng);
-                        if(statutIng.equalsIgnoreCase("disp"))
-                        ingr[j].setDisponibilite(Boolean.TRUE);
-                        else 
-                            ingr[j].setDisponibilite(Boolean.FALSE);
-                        ingreDao.create(ingr[j]);
-                        System.out.println("test ingredient"+ingr[j]);
-                    }
-                   
-                    items[i].setIngredient(ingr);
-                    items[i].setPrix(Double.parseDouble(prix));
-                    items[i].setRabais(Double.parseDouble(rabais));
-                    items[i].setTemps_preparation(Integer.parseInt(temps));
-                    itemdao.create(items[i]);
-             }    
+             List items = new LinkedList<>();
+             items=itemdao.findAll();
             return items;   
      }
      
